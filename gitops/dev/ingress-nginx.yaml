@@ -13,6 +13,8 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
+          hostNetwork: true
+          dnsPolicy: ClusterFirstWithHostNet
           service:
             type: LoadBalancer
   destination:
