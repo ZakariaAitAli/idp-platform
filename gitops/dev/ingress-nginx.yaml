@@ -13,10 +13,10 @@ spec:
       releaseName: ingress-nginx
       values: |
         controller:
-          hostNetwork: true
-          dnsPolicy: ClusterFirstWithHostNet
           service:
             type: LoadBalancer
+          admissionWebhooks:
+            enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: ingress-nginx
