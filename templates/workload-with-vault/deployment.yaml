@@ -13,6 +13,7 @@ spec:
         app: example-app
     spec:
       serviceAccountName: example-app
+      automountServiceAccountToken: false
       containers:
         - name: app
           image: nginx
