@@ -9,7 +9,7 @@ spec:
     - namespace: '*'
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/ZakariaAitAli/idp-platform.git
+    - git@github.com:ZakariaAitAli/idp-platform.git
   clusterResourceWhitelist:
     - group: '*'
       kind: '*'
@@ -25,7 +25,7 @@ spec:
     - namespace: '*'
       server: https://kubernetes.default.svc
   sourceRepos:
-    - https://github.com/ZakariaAitAli/idp-platform.git
+    - git@github.com:ZakariaAitAli/idp-platform.git
   namespaceResourceWhitelist:
     - group: '*'
       kind: '*'

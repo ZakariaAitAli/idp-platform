@@ -6,7 +6,7 @@ metadata:
 spec:
   project: platform
   source:
-    repoURL: https://github.com/ZakariaAitAli/idp-platform.git
+    repoURL: git@github.com:ZakariaAitAli/idp-platform.git
     targetRevision: main
     path: kubernetes/keycloak
     directory:
