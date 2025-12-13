@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: argocd
+  namespace: argocd
+spec:
+  applicationInstanceLabelKey: argocd.argoproj.io/instance
+  resourceTrackingMethod: label
+  server:
+    insecure: false
+    extraArgs:
+      - --insecure=false
+  repo:
+    enableOCI: true
+  dex:
+    openShiftOAuth: false
+  rbac:
+    defaultPolicy: role:readonly
+    policy: |
+      g, platform-admins, role:admin
+      g, platform-readers, role:readonly
+  resourceExclusions: |
+    - apiGroups:
+        - kyverno.io
+      kinds:
+        - Policy
+        - ClusterPolicy
+      clusters:
+        - '*'

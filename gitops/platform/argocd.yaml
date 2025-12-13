@@ -1,16 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: idp-root
+  name: platform-argocd
   namespace: argocd
-  labels:
-    platform/role: bootstrap
 spec:
-  project: default
+  project: platform
   source:
     repoURL: https://github.com/your-org/idp-platform.git
     targetRevision: main
-    path: gitops/root
+    path: kubernetes/argocd
     directory:
       recurse: true
   destination:

@@ -1,21 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: idp-root
+  name: env-eks-cert-manager-overrides
   namespace: argocd
-  labels:
-    platform/role: bootstrap
 spec:
-  project: default
+  project: platform
   source:
     repoURL: https://github.com/your-org/idp-platform.git
     targetRevision: main
-    path: gitops/root
+    path: kubernetes/cert-manager/overlays/eks
     directory:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: cert-manager
   syncPolicy:
     automated:
       prune: true

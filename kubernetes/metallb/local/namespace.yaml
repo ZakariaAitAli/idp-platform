@@ -1,6 +1,6 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: external-secrets
+  name: metallb-system
   labels:
     platform/owner: platform-team

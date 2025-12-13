@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backstage
+  namespace: backstage
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backstage
+  template:
+    metadata:
+      labels:
+        app: backstage
+    spec:
+      serviceAccountName: backstage
+      volumes:
+        - name: app-config
+          secret:
+            secretName: backstage-app
+            items:
+              - key: app-config.yaml
+                path: app-config.yaml
+      containers:
+        - name: backstage
+          image: ghcr.io/backstage/backstage:latest
+          args:
+            - --config
+            - /etc/backstage/app-config.yaml
+          volumeMounts:
+            - name: app-config
+              mountPath: /etc/backstage
+          ports:
+            - containerPort: 7000
+              name: http

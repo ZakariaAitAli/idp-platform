@@ -1,21 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: idp-root
+  name: platform-ingress
   namespace: argocd
-  labels:
-    platform/role: bootstrap
 spec:
-  project: default
+  project: platform
   source:
     repoURL: https://github.com/your-org/idp-platform.git
     targetRevision: main
-    path: gitops/root
+    path: kubernetes/ingress-nginx
     directory:
       recurse: true
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: ingress-nginx
   syncPolicy:
     automated:
       prune: true
