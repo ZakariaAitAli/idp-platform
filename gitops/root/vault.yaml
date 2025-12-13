@@ -1,20 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: idp-root
+  name: vault
   namespace: argocd
 spec:
   project: default
-
   source:
     repoURL: git@github.com:ZakariaAitAli/idp-platform.git
     targetRevision: main
-    path: gitops/root
-
+    path: kubernetes/vault
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
-
+    namespace: vault
   syncPolicy:
     automated:
       prune: true
