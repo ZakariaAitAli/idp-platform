@@ -6,9 +6,18 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: git@github.com:ZakariaAitAli/idp-platform.git
-    targetRevision: main
-    path: kubernetes/vault
+    repoURL: https://helm.releases.hashicorp.com
+    chart: vault
+    targetRevision: 0.31.0
+    helm:
+      values: |
+        server:
+          dev:
+            enabled: true
+          ha:
+            enabled: false
+        ui:
+          enabled: true
   destination:
     server: https://kubernetes.default.svc
     namespace: vault

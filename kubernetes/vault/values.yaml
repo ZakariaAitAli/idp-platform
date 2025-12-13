@@ -1,9 +1,0 @@
-server:
-  dev:
-    enabled: true
-
-  ha:
-    enabled: false
-
-ui:
-  enabled: true
