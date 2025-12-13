@@ -8,9 +8,7 @@ spec:
   source:
     repoURL: git@github.com:ZakariaAitAli/idp-platform.git
     targetRevision: main
-    path: kubernetes/cert-manager
-    directory:
-      recurse: true
+    path: kubernetes/cert-manager/overlays/local
   destination:
     server: https://kubernetes.default.svc
     namespace: cert-manager
